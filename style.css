@@ -48,6 +48,14 @@ section{
     padding: 5rem 10%;
  
 }
+.heading{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.heading h3{
+    font-size: 5rem;
+}
+
 
 .btn{
     display: inline-block;
@@ -312,11 +320,102 @@ section{
 .about {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 5rem 10%;
-    background-color: var(--light-bg);
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 .about .image {
-    flex: 1;
-    padding: 2rem;
+    flex: 1 1 40rem;
 }
+.about .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+.about .content {
+    flex: 1 1 40rem;
+    color: var(--black);
+}
+.about .content h3 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.about .content p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+.about .content p:last-child {
+    margin-top: 1rem;
+}
+.about .content .btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+}
+.content .welcome {
+    font-size: 2.5rem;
+    color: var(--peru);
+    margin-bottom: 1rem;
+}
+.about .icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex: 1 1 60rem;
+    justify-content: center;
+}
+.about .icons-container .icons {
+    flex: 1 1 20rem;
+    text-align: center;
+    height: 20rem;
+}
+.about .icons-container .icons i {
+    font-size: 5rem;
+    color: var(--peru);
+    background: var(--white);
+    margin-bottom: 0.5rem;
+    border-radius: 20%;
+    padding: 2rem 3rem;
+}
+.about .icons-container .icons span {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--white);
+}
+.food{
+background: var(--light-bg);
+}
+.food .slide{
+    padding: 3rem 2rem;
+    text-align: center;
+    transform: scale(.9);
+    opacity: .5;
+}
+.food .slide.active{
+    transform: scale(1);
+    opacity: 1;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+}
+.food .slide img{
+    width: 100%;
+    height: 25rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+;
+}
+.food .slide h3{
+    font-size: 2.5rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+.food .slide p{
+    font-size: 1.6rem;
+    color: var(--light-black);
+    margin-bottom: 1rem;
+}
+.food .slide .price{
+    font-size: 2rem;
+    color: var(--peru);
+    margin-bottom: 1rem;
+}
+ 

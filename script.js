@@ -14,9 +14,27 @@ menuBtn.onclick = () => {
     prevEl: ".swiper-button-prev",
   },
   loop: true,
-
   grabCursor: true,
- });
- 
+});
 
-
+var swiperFood = new Swiper(".food-slider", {
+  loop: true,
+  grabCursor: true,
+  centeredSlides: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    700: {
+      slidesPerView: 2,
+    },
+    1000: {
+      slidesPerView: 3,
+    },
+  },
+});
+    
