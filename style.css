@@ -1,3 +1,57 @@
+/* Ensure food preview overlay displays correctly */
+.food-preview-container {
+    background: var(--dark-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+.food-preview-container .food-preview {
+    background: var(--white);
+    text-align: center;
+    border-radius: 5rem;
+    padding: 3rem 2rem;
+    display: none;
+    max-width: 40rem;
+}
+.food-preview-container .food-preview.active {
+    display: inline-block;
+    animation: fadeIn 0.4s cubic-bezier(.54, 1.3, 0.63,1.34) backwards;
+}
+.menu .slide {
+    display: flex;
+    flex-direction: column;
+}
+.menu .slide .title {
+    order: 0;
+    font-size: 2.5rem;
+    color: var(--peru);
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+
+}
+.menu .slide .box-container {
+    order: 1;
+}
+
+.gallery .box {
+    position: relative;
+    overflow: hidden;
+}
+.food-preview {
+    position: relative;
+}
+.food .swiper-slide.slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
@@ -48,12 +102,19 @@ section{
     padding: 5rem 10%;
  
 }
+
 .heading{
     text-align: center;
     margin-bottom: 3rem;
 }
+.heading span{
+    font-size: 2.5rem;
+    color: var(--peru);
+}
+
 .heading h3{
-    font-size: 5rem;
+    font-size: 4.5rem;
+    color: var(--black);
 }
 
 
@@ -76,12 +137,15 @@ section{
 .content{
     max-width: 100rem;
     margin: 0 auto;
-    padding: 2rem 0;
-    text-align: center;
-}
-
-.btn:hover{
-    background-color: var(--black);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    background: var(--light-bg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
     color: var(--white);
     letter-spacing: .2rem;
 }
@@ -122,7 +186,6 @@ section{
     color: var(--peru);
 }
 #menu-btn{
-    display: none;
     font-size: 2.5rem;
     color: var(--black);
     cursor: pointer;
@@ -163,12 +226,20 @@ section{
     height: 100%;
     width: 100%;
 }
+.home .content {
+    background: transparent !important;
+}
 .home .swiper-slide .content{
     color: var(--white);
     text-align: center;
     z-index: 1;
     width: 70rem;
-    display: none;
+    background: var(--light-bg);
+    /* display: none; removed so Swiper text is always visible */
+}
+
+.home .swiper-slide-active .content {
+    display: block;
 }
 .home .swiper-slide .content span{
     font-size: 3rem;
@@ -322,9 +393,11 @@ section{
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    background: var(--light-bg);
 }
 .about .image {
     flex: 1 1 40rem;
+    background-color: #cd9452;
 }
 .about .image img {
     width: 100%;
@@ -348,13 +421,9 @@ section{
 }
 .about .content .btn {
     margin-top: 1.5rem;
-    display: inline-block;
+    display: inline-block;;
 }
-.content .welcome {
-    font-size: 2.5rem;
-    color: var(--peru);
-    margin-bottom: 1rem;
-}
+
 .about .icons-container {
     display: flex;
     flex-wrap: wrap;
@@ -370,7 +439,7 @@ section{
 .about .icons-container .icons i {
     font-size: 5rem;
     color: var(--peru);
-    background: var(--white);
+    background: var(--light-black);
     margin-bottom: 0.5rem;
     border-radius: 20%;
     padding: 2rem 3rem;
@@ -378,44 +447,423 @@ section{
 .about .icons-container .icons span {
     display: block;
     font-size: 1.6rem;
-    color: var(--white);
+    color: var(--black);
 }
 .food{
-background: var(--light-bg);
+    background: var(--white);
 }
-.food .slide{
-    padding: 3rem 2rem;
+
+.food .swiper-slide.slide {
     text-align: center;
+    padding: 4rem 2rem;
     transform: scale(.9);
     opacity: .5;
+    cursor: pointer;
 }
-.food .slide.active{
+.food .swiper-slide-active.slide {
     transform: scale(1);
     opacity: 1;
-    background: var(--white);
-    box-shadow: var(--box-shadow);
+    background: var(--light-bg);
     border: var(--border);
+    box-shadow: var(--box-shadow);
 }
-.food .slide img{
-    width: 100%;
+.food .swiper-slide.slide img{
     height: 25rem;
-    border-radius: 1rem;
     margin-bottom: 1rem;
-;
 }
-.food .slide h3{
+.food .swiper-slide.slide h3{
     font-size: 2.5rem;
     color: var(--black);
-    padding: 1rem 0;
+    margin: 1rem 0;
+
 }
-.food .slide p{
-    font-size: 1.6rem;
-    color: var(--light-black);
-    margin-bottom: 1rem;
-}
-.food .slide .price{
+.food .swiper-slide.slide .price{
     font-size: 2rem;
     color: var(--peru);
+}
+.food-preview-container{
+    background: var(--dark-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+.food-preview-container .food-preview{
+    background: var(--white);
+    text-align: center;
+    border-radius: 3rem;
+    padding: 3rem 2rem;
+    display: none;
+    max-width: 40rem;
+}
+.food-preview-container .food-preview.active{
+    display: inline-block;
+    animation:fadeIn 0.4s cubic-bezier(.54, 1.3, 0.63,1.34)backwards;
+}
+.food-preview-container .food-preview img{
+    height: 20rem;
     margin-bottom: 1rem;
 }
+.food-preview-container .food-preview h3{
+    font-size: 2rem;
+    color: var(--black);
+    margin: 1rem 0;
+}
+.food-preview-container .food-preview p{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--light-black);
+}
+.food-preview-container .food-preview .price{
+    font-size: 2rem;
+    color: var(--peru);
+}
+.food-preview-container .food-preview .btn{
+    margin-top: 1.5rem;
+    display: inline-block;
+}
+.food-preview-container .fa-times{
+    position: fixed;
+    top: 3rem;
+    right: 4rem;
+    font-size: 5rem;
+    color: var(--white);
+    cursor: pointer;
+    z-index: 1200;
+}
+.food-preview-container .fa-times:hover{
+    color: var(--peru);
+}
+.food-preview-container .fa-times:active{
+    color: var(--dark);
+}
+.food-preview-container .stars{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.food-preview-container .stars i{
+    font-size: 2rem;
+    color: var(--peru);
+}
+.food-preview-container .stars i.active{
+    color: var(--black);
+}
+
+.gallery{
+    background: var(--light-bg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.gallery .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+.gallery .gallery-container .box {
+    position: relative;
+    overflow: hidden;;
+    border-radius: 2rem;
+}
+.gallery.gallery-container .box:hover {
+    opacity: .9;
+    pointer-events: auto;
+}
+.gallery .gallery-container .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(.54, 1.3, 0.63,1.34);
+}
+.gallery .gallery-container .box:hover img {
+    transform: scale(1.1);
+}
+.gallery .gallery-container .box .icon {
+    display: none ;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-bg);
+}
+
+.gallery .gallery-container .box .icon i {
+    font-size: 3rem;
+    color: var(--white);
+    font-size: 6rem;
+}
+
+.gallery .gallery-container .box:hover .icon {
+    display: flex;
+}
+.menu {
+    background: var(--light-bg);
+}
+.menu .slide {
+    margin-bottom: 4rem;
+}
+.menu .slide .title {
+    font-size: 5rem;
+    color: var(--black);
+    background: var(--peru);
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.menu .slide .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.menu .slide .box-container .box {
+    flex: 1 1 41rem;
+    background: var(--light-bg);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+}
+.menu .slide .box-container .box:hover {
+    transform:scale(.9);
+    cursor: pointer;
+}
+.menu .slide .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: 5rem;
+    line-height: 1.5rem;
+}
+.menu .slide .box-container .box .price {
+    font-size: 1.8rem;
+    color: var(--peru);
+    font-weight: bolder;
+
+}
+.menu .slide .box-container .box p {
+    font-size: 1.6rem;
+    color: var(--light-black);
+    line-height: 1.5rem;
+}
+.menu .slide .box-container .box{
+    flex-flow: column;
+    text-align: center;
+}
+.order form{
+    padding: 2rem;
+    background: var(--white);
+}           
+
+.order{
+    background: var(--peru);
+}
+.order .heading span{
+    color: var(--light-white);
+}
+.order .heading h3{
+    color: var(--white);
+   font-size: 2.5rem;
+   text-align: center;
+   margin-bottom: 2rem;
+}
+.order form .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+.order form .box-container .box{
+    flex: 1 1 41rem;
+}
+.order form .box-container .box .inputbox input,
+.order form .box-container .box .inputbox textarea{
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.7rem;
+    margin: 1rem 0;
+    color: var(--black);
+    border: var(--border);
+    text-transform: none;
+    background: var(--light-bg);
+    box-sizing: border-box;
+}
+.order form .box-container .box .inputbox input:focus,
+.order form .box-container .box .inputbox textarea:focus{
+background: var(--black);
+color: var(--white);
+}
+.order form .box-container .box .inputbox input::placeholder,
+.order form .box-container .box .inputbox textarea::placeholder{
+text-transform: capitalize;
+}
+.order form .box-container .box .inputbox input:focus::placeholder,
+.order form .box-container .box .inputbox textarea:focus::placeholder{
+    color: var(--light-white);
+}
+
+.order form .box-container .box .inputbox textarea{
+    resize: none;
+    height: 20rem;
+    border-radius: 1rem;
+
+}
+.order form .box-container .box .map{
+    width: 100%;
+    height: 20rem;
+}
+.order form .box-container .box .inputbox span{
+    font-size: 1.5rem;
+    color: var(--black);
+}
+.blog{
+    background: var(--light-bg);
+}
+.blog .swiper-slide {
+    background: var(--white);
+}
+.blog .slide{
+    width: 30rem;
+    min-width: 30rem;
+    max-width: 30rem;
+    margin: 0 1rem;
+    box-sizing: border-box;
+    height: 48rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.blog .slide .image{
+    height: 22rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1.5rem;
+}
+.blog .slide .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+.blog .slide{
+    margin-bottom: 4rem;
+}
+
+.blog .slide .image span{
+    position: absolute;
+    left: 50%;
+    bottom: 1.5rem;
+    top: auto;
+    transform: translateX(-50%);
+    padding: 0.5rem 2rem;
+    font-size: 1.6rem;
+    color: var(--white);
+    background: var(--dark-bg);
+    border-radius: 2rem;
+    z-index: 10;
+    opacity: 0.95;
+}
+.blog .slide:hover .image span{
+    bottom: 1rem;
+}
+.blog .slide:hover .image img{
+    transform: scale(1.1);
+}
+.blog .slide .content{
+    padding: 2rem;
+    background: var(--light-bg);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+.blog .slide .content .icons{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    width: 100%;
+}
+.blog .slide .content .icons a{
+ font-size: 1rem;
+ color: var(--light-black);
+}
+.blog .slide .content .icons a i{
+    margin-right: 1rem;
+    color: var(--peru);
+    font-size: 1.5rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.blog .slide .content .icons a:hover{
+    color: var(--black);
+    
+}
+.blog .slide .content .tittle{
+    font-size: 1.7rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: left;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+.blog .slide .content .tittle:hover{
+    text-decoration: underline;
+}
+.blog .slide .content h3{
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+.blog .slide .content p{
+    font-size: 1.6rem;
+    color: var(--light-black);
+    line-height: 1.5;
+    padding: 1rem 0;
+}
+.blog .slide .content .btn{
+    margin-top: 1.5rem;
+    display: inline-block;
+}
  
+
+
+@media (max-width: 991px){
+    section{
+        padding: 3rem 2rem;
+    }
+    html{
+        font-size: 55%;
+    }
+    .home .swiper-slide .content h3{
+        font-size: 15vw;
+    }
+}
+@media (max-width: 768px) {
+    #menu-btn{
+        display: block;
+    }
+}
